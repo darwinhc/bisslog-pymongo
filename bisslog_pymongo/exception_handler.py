@@ -14,7 +14,7 @@ from pymongo.errors import (
 )
 
 
-def bisslog_exception_handler_pymongo(func):
+def bisslog_exc_mapper_pymongo(func):
     """Decorator to catch and log specific PyMongo exceptions."""
 
     @wraps(func)

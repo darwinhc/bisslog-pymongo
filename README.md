@@ -9,7 +9,7 @@ import os
 from pymongo import MongoClient, DESCENDING
 from abc import ABC, abstractmethod
 from bisslog import Division, bisslog_db
-from bisslog_pymongo import BasicPymongoHelper, bisslog_exception_handler_pymongo
+from bisslog_pymongo import BasicPymongoHelper, bisslog_exc_mapper_pymongo
 
 
 class MarketingDivision(Division, ABC):
@@ -21,7 +21,7 @@ class MarketingDivision(Division, ABC):
 
 class MarketingMongoDivision(MarketingDivision, BasicPymongoHelper):
 
-    @bisslog_exception_handler_pymongo
+    @bisslog_exc_mapper_pymongo
     def find_sales_per_client(self, id_client: int):
         res = self.get_collection("sales").find({"id_client": id_client}).sort(
             {'created_at': DESCENDING})

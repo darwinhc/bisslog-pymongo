@@ -9,10 +9,10 @@ from bisslog.exceptions.external_interactions_errors import (
     ConfigurationExtException, TimeoutExtException, ConnectionExtException,
     OperationalErrorExtException, ExternalInteractionError
 )
-from bisslog_pymongo import bisslog_exception_handler_pymongo
+from bisslog_pymongo import bisslog_exc_mapper_pymongo
 
 # Helper function to simulate a function raising an exception
-@bisslog_exception_handler_pymongo
+@bisslog_exc_mapper_pymongo
 def function_that_raises(exception):
     raise exception
 
