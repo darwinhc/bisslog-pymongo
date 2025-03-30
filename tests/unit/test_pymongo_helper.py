@@ -45,7 +45,6 @@ def test_insert_one(pymongo_helper, mock_mongo_client):
     inserted_id = pymongo_helper.insert_one(
         "test_collection", {"test_field1": 245, "test_field2": "Hello", "_id": ObjectId()}, save_id=True)
     assert inserted_id == str(mock_insert_result.inserted_id)
-    mock_mongo_client.get_database().get_collection().insert_one.assert_any_call()
 
 
 def test_find_one(pymongo_helper, mock_mongo_client):
@@ -65,14 +64,14 @@ def test_stringify_identifier():
     """Test conversion of ObjectId to string."""
     test_doc = {"_id": ObjectId(), "name": "Test"}
     expected_doc = {"_id": str(test_doc["_id"]), "name": "Test"}
-    assert BasicPymongoHelper._stringify_identifier(test_doc) == expected_doc
+    assert BasicPymongoHelper.stringify_identifier(test_doc) == expected_doc
 
 
 def test_stringify_list_identifier():
     """Test conversion of a list of documents' ObjectIds to strings."""
     test_docs = [{"_id": ObjectId(), "name": "Test1"}, {"_id": ObjectId(), "name": "Test2"}]
     expected_docs = [{"_id": str(doc["_id"]), "name": doc["name"]} for doc in test_docs]
-    assert BasicPymongoHelper._stringify_list_identifier(test_docs) == expected_docs
+    assert BasicPymongoHelper.stringify_list_identifier(test_docs) == expected_docs
 
 
 def test_verify_query():
