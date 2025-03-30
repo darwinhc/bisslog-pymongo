@@ -13,7 +13,7 @@ from bisslog.transactional.transaction_traceable import TransactionTraceable
 class BasicPymongoHelper(TransactionTraceable):
     """Helper definition with an approach for mongodb databases with methods predisposed for it"""
 
-    def __init__(self, mongo_client: MongoClient, database_name: str = None):
+    def __init__(self, mongo_client: MongoClient, database_name: str = None) -> None:
         self.client = mongo_client
         if database_name is None:
             self.database = self.client.get_default_database()
