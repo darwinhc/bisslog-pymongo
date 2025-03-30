@@ -1,4 +1,6 @@
 """Pymongo database helper implementation"""
+from typing import Iterator
+
 from bson.errors import InvalidId
 from bson.objectid import ObjectId
 
@@ -37,20 +39,20 @@ class BasicPymongoHelper(TransactionTraceable):
         """Get one document from a collection"""
         query = self.verify_query(query)
         res = self.get_collection(collection).find_one(query, selection)
-        res = self._stringify_identifier(res)
+        res = self.stringify_identifier(res)
         return res
 
     @classmethod
-    def _stringify_identifier(cls, obj: dict):
+    def stringify_identifier(cls, obj: dict):
         """Convert id from UID to string"""
         if obj is not None and "_id" in obj:
             obj['_id'] = str(obj['_id'])
         return obj
 
     @classmethod
-    def _stringify_list_identifier(cls, list_obj: list):
+    def stringify_list_identifier(cls, list_obj: Iterator):
         """Convert a list of unique ID's to string"""
-        return list(map(cls._stringify_identifier, list_obj))
+        return list(map(cls.stringify_identifier, list_obj))
 
     @staticmethod
     def verify_query(query):
