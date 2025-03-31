@@ -15,7 +15,7 @@ on:
 
 jobs:
   run-changes-reception:
-    uses: darwinhc/bisslog-core-py/.github/workflows/receive-changes.yml@master
+    uses: darwinhc/bisslog-pymongo/.github/workflows/receive-changes.yml@master
 
   determine-version:
     runs-on: ubuntu-latest
@@ -77,5 +77,5 @@ jobs:
         run: |
           python -m venv test_env
           source test_env/bin/activate
-          python -m pip install --index-url https://test.pypi.org/simple/ --no-deps bisslog
+          python -m pip install --index-url https://test.pypi.org/simple/ --no-deps bisslog_pymongo
           deactivate
