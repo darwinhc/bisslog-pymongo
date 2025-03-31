@@ -1,9 +1,21 @@
-# bisslog-pymongo
+# Business logic - Pymongo (bisslog-pymongo)
+
+[![PyPI](https://img.shields.io/pypi/v/bisslog_pymongo)](https://pypi.org/project/bisslog_pymongo/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 It is an extension of the bisslog library to support processes with the pymongo driver library of the mongo db database.
 
+---
 
-## Example usage
+## 🚀 Installation
+You can install `bisslog-pymongo` using **pip**:
+
+```bash
+pip install bisslog_pymongo
+```
+
+
+## Usage example
 
 ~~~python
 import os
@@ -150,3 +162,7 @@ get_length(collection: str, query: dict) -> int
    
 Returns the number of documents matching the given query in a collection.
 
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
