@@ -9,8 +9,8 @@ from bisslog.exceptions.external_interactions_errors import (
 
 from bson.errors import BSONError
 from pymongo.errors import (
-    ConnectionFailure, OperationFailure, DuplicateKeyError, CollectionInvalid, ConfigurationError,
-    NetworkTimeout, WriteError, PyMongoError
+    ConnectionFailure, OperationFailure, DuplicateKeyError, CollectionInvalid,
+    ConfigurationError, NetworkTimeout, WriteError, PyMongoError
 )
 
 
