@@ -5,6 +5,8 @@
 
 It is an extension of the bisslog library to support processes with the pymongo driver library of the mongo db database.
 
+If you want to know more about what bisslog is, you can enter [here](https://github.com/darwinhc/bisslog-docs) or in their [library](https://github.com/darwinhc/bisslog-core-py)
+
 ---
 
 ## 🚀 Installation
